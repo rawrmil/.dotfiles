@@ -3,14 +3,14 @@ sudo sed -i 's/#user_allow_other/user_allow_other/' /etc/fuse.conf
 mkdir -p ~/Cloud
 # P C
 ```
-#!/bin/bash
+#!/bin/sh
 ssh_user=
 ssh_ip=
 ssh_port=
 ssh_dir=/home/$ssh_user/Cloud
 user=
 mkdir -p $HOME/Cloud
-sshfs -d -o uid=$(id -u $user),gid=$(id -g $user),allow_other \
+sshfs -d -o uid=`id -u $user`,gid=`id -g $user`,allow_other \
 	-p $ssh_port $ssh_user@$ssh_ip:$ssh_dir $HOME/Cloud
 fusermount -u $HOME/Cloud
 ```
