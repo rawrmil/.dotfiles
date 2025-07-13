@@ -1,6 +1,4 @@
 #!/bin/sh
-source ~/.dotfiles/scripts/utils/hascmd.sh
-[ hascmd xsetroot ] || exit 1
 xsetroot -name "Wait..."
 while true; do
 	BAT0=`find /sys/devices -name capacity -exec cat {} \;`
