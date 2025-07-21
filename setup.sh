@@ -63,6 +63,6 @@ if hascmd "envsubst"; then
 fi
 
 echo "Stow Flags: $stow_flags"
-set +x
-stow_flags="--ignore '\.templ$'"
-cd ~/.dotfiles && stow --verbose src $stow_flags
+set -x
+stow_flags="--ignore=.*\.templ$"
+cd ~/.dotfiles && stow --simulate --verbose src $stow_flags
