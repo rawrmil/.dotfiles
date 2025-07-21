@@ -38,7 +38,7 @@ if hascmd "git"; then
 	git config --global user.email "khasanshin.ramil@list.ru"
 fi
 
-if hascmd "zsh"; then
+if hascmd "zsh" && [ `basename "$SHELL"` != "zsh" ]; then
 	echo "[LOG] zsh setup..."
 	chsh -s $zsh_chsh_path
 fi
@@ -54,6 +54,11 @@ fi
 
 if hascmd "startx"; then
 	stow_flags="--ignore .termux"
+fi
+
+if hascmd "envsubst"; then
+	echo "[LOG] envsubst the configs..."
+	# should replace dpi but will just copy
 fi
 
 echo "Stow Flags: $stow_flags"
