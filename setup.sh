@@ -2,7 +2,7 @@
 
 #set -x
 
-stow_ignore=
+stow_flags="--ignore '\.templ$'"
 
 # D E P E N D E N C I E S
 
@@ -12,14 +12,14 @@ zsh_chsh_path="/bin/zsh"
 # Termux
 if [ `echo $PREFIX | grep -o "com.termux"` ]; then
 	zsh_chsh_path="zsh"
-	stow_flags="--ignore .termux "
+	stow_flags="$stow_flags --ignore .termux"
 fi
 
 # U T I L S
 
 hascmd() {
 	if command -v "$1" 2>&1 >/dev/null; then
-		echo "[LOG] neovim is here..."
+		echo "[LOG] $1 is here..."
 		return 0
 	fi
 	echo "[ERR] no '$1' command!"
@@ -52,13 +52,14 @@ if hascmd "gh"; then
 	fi
 fi
 
-if hascmd "startx"; then
-	stow_flags="--ignore .termux"
-fi
-
 if hascmd "envsubst"; then
 	echo "[LOG] envsubst the configs..."
 	# should replace dpi but will just copy
+	cd ~/.dotfiles
+	find . -name "*.templ" -print0 | while IFS= read -r -d $'\0' file; do
+		name="${file%.templ}"
+		envsubst < "$file" > "$name"
+	done
 fi
 
 echo "Stow Flags: $stow_flags"
