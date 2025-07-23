@@ -16,6 +16,7 @@ c - create window
 w - list windows
 n - next window
 p - previous window
+l - last active window
 f - find window
 , - name window
 & - kill window
