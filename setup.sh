@@ -63,5 +63,4 @@ if hascmd "envsubst"; then
 fi
 
 echo "Stow Flags: $stow_flags"
-set -x
 cd ~/.dotfiles && stow src $stow_flags
