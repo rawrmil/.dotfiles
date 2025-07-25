@@ -12,6 +12,7 @@ zsh_chsh_path="/bin/zsh"
 # Termux
 if [ `echo $PREFIX | grep -o "com.termux"` ]; then
 	zsh_chsh_path="zsh"
+else
 	stow_flags="$stow_flags --ignore .termux"
 fi
 
