@@ -64,5 +64,4 @@ fi
 
 echo "Stow Flags: $stow_flags"
 set -x
-stow_flags="--ignore=.*\.templ$"
-cd ~/.dotfiles && stow --simulate --verbose src $stow_flags
+cd ~/.dotfiles && stow src $stow_flags
