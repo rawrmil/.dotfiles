@@ -63,5 +63,7 @@ if hascmd "envsubst"; then
 	done
 fi
 
-echo "Stow Flags: $stow_flags"
-cd ~/.dotfiles && stow src $stow_flags
+if hascmd "stow"; then
+	echo "Stow Flags: $stow_flags"
+	cd ~/.dotfiles && stow src $stow_flags
+fi
