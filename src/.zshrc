@@ -66,7 +66,7 @@ zle-line-init() {
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
 
-bindkey -s '^f' 'cd $(find . -type d | fzf)\n'
+bindkey -s '^f' 'cd $(find ~ -type d | fzf)\n'
 
 # Edit line in vim with ctrl-e:
 bindkey '^e' edit-command-line
