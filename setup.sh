@@ -37,6 +37,11 @@ if hascmd "git"; then
 	echo "[LOG] git setup..."
 	git config --global user.name "Ramil Khasanshin"
 	git config --global user.email "khasanshin.ramil@list.ru"
+	git config --global alias.a 'add'
+	git config --global alias.aa 'add --all'
+	git config --global alias.r 'rm --cached'
+	git config --global alias.unstage 'reset --soft HEAD~1'
+	git config --global alias.l 'log --oneline --graph --decorate'
 fi
 
 if hascmd "zsh" && [ `basename "$SHELL"` != "zsh" ]; then
