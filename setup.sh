@@ -42,6 +42,7 @@ if hascmd "git"; then
 	git config --global alias.r 'rm --cached'
 	git config --global alias.unstage 'reset --soft HEAD~1'
 	git config --global alias.l 'log --oneline --graph --decorate'
+	git config --global alias.s 'status'
 fi
 
 if hascmd "zsh" && [ `basename "$SHELL"` != "zsh" ]; then
