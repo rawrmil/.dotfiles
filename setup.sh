@@ -2,7 +2,7 @@
 
 #set -x
 
-stow_flags="--ignore .Xresources --ignore "
+stow_flags="--ignore .Xresources --ignore .xinitrc --ignore git"
 
 # D E P E N D E N C I E S
 
