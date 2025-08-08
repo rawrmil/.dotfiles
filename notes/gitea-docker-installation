@@ -48,6 +48,6 @@ services:
       - ./postgres:/var/lib/postgresql/data
 ```
 4. docker-compose up -d
-5. Setup over localhost:3000
+5. Setup over localhost:3000 - disable self-registration; create admin user
 If need to close with volumes:
 6. docker compose down -v
