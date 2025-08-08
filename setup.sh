@@ -2,7 +2,7 @@
 
 #set -x
 
-stow_flags="--ignore '\.templ$'"
+stow_flags="--ignore .Xresources --ignore "
 
 # D E P E N D E N C I E S
 
@@ -45,7 +45,7 @@ if hascmd "git"; then
 	git config --global alias.s 'status'
 	git config --global alias.p 'push'
 	git config --global alias.pn 'push --no-verify'
-	git config --global alias.aliases 'config --get-regexp' 'alias'
+	git config --global alias.aliases 'config --get-regexp "^alias"'
 fi
 
 if hascmd "zsh" && [ `basename "$SHELL"` != "zsh" ]; then
