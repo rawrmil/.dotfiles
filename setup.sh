@@ -45,6 +45,8 @@ if hascmd "git"; then
 	git config --global alias.s 'status'
 	git config --global alias.p 'push'
 	git config --global alias.pn 'push --no-verify'
+	git config --global alias.c 'commit -m '
+	git config --global alias.cl 'clone '
 	git config --global alias.aliases 'config --get-regexp "^alias"'
 fi
 
