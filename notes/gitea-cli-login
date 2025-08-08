@@ -1,0 +1,4 @@
+1. Create token through website (Settings -> Applications)
+2.
+tea login add --name=USERNAME --url= --token=
+tea login default USERNAME
