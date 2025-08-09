@@ -50,4 +50,7 @@ services:
 4. docker-compose up -d
 5. Setup over localhost:3000 - disable self-registration; create admin user
 If need to close with volumes:
-6. docker compose down -v
+docker compose down -v
+If need to change /etc/data/gitea/app.ini
+docker ps
+docker exec 'gitea' -it /bin/bash
