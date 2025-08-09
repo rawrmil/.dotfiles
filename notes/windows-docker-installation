@@ -7,7 +7,7 @@ services:
     environment:
       VERSION: "10"
       RAM_SIZE: "6G"
-      CPU_CORES: "4"
+      CPU_CORES: "6"
     devices:
       - /dev/kvm
       - /dev/net/tun
@@ -24,3 +24,4 @@ services:
     stop_grace_period: 2m
 ```
 2. docker-compose up -v
+3. Connect over RDP:3389 login:docker,password:admin (remmina)
