@@ -17,7 +17,8 @@ while true; do
 	picom -b --config ~/dots/dwm/picom.conf
 	flameshot &
 	xrdb -merge $HOME/.Xresources
-	~/.dwm-start.sh
+	xrandr --output eDP1 --mode 1920x1200
+	#~/.dwm-start.sh
 	~/.dotfiles/scripts/dwm/dwm-bar.sh &
 	dwm
 	sleep 1
