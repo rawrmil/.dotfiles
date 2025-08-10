@@ -17,6 +17,7 @@ while true; do
 	picom -b --config ~/dots/dwm/picom.conf
 	flameshot &
 	xrdb -merge $HOME/.Xresources
+	~/.dwm-start.sh
 	~/.dotfiles/scripts/dwm/dwm-bar.sh &
 	dwm
 	sleep 1
