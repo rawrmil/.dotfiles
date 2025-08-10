@@ -1,2 +1,2 @@
-1. sudo xbps-install -S cross-arm-none-eabi base-devel
+1. sudo xbps-install -S cross-arm-none-eabi base-devel stlink
 2. 
