@@ -1,3 +1,5 @@
 1. sudo xbps-install -S cross-arm-none-eabi base-devel stlink
-2. git clone https://github.com/STMicroelectronics/stm32f4xx-hal-driver
+2.
+git clone https://github.com/STMicroelectronics/stm32f4xx-hal-driver
+git clone https://github.com/STMicroelectronics/STM32CubeF4
 3. 
