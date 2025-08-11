@@ -11,7 +11,11 @@ exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 
 # Aliases
 alias ls="ls --color=auto"
-function ch() { cd ~/.dotfiles/notes; nvim `find -type f | fzf` }
+function ch() {
+	cd ~/.dotfiles/notes
+	target=`find -type f | fzf --query '/dev/null'`
+	[ $target = '/dev/null' ] || nvim
+}
 alias g="git"
 alias gac="git commit"
 
