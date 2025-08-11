@@ -11,7 +11,7 @@ exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 
 # Aliases
 alias ls="ls --color=auto"
-alias ch="cd ~/.dotfiles/notes"
+alias ch="cd ~/.dotfiles/notes; cd $(find ~ -type d | fzf)\n"
 alias g="git"
 alias gac="git commit"
 
