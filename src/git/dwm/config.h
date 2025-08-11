@@ -25,6 +25,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "v2rayN",   NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "Telegram", NULL,       NULL,       1 << 3,       0,           -1 },
+	{ "Steam",    NULL,       NULL,       1 << 7,       0,           -1 },
 };
 
 /* layout(s) */
