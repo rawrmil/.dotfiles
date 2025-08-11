@@ -24,7 +24,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "v2rayN",   NULL,       NULL,       1 << 8,       0,           -1 },
-	{ "Telegram", NULL,       NULL,       1 << 4,       0,           -1 },
+	{ "Telegram", NULL,       NULL,       1 << 3,       0,           -1 },
 };
 
 /* layout(s) */
