@@ -100,7 +100,7 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_s,                      7)
 	TAGKEYS(                        XK_d,                      8)
 	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
-	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrshotcmd } },
+	{ MODKEY|ShiftMask,             XK_z,      spawn,          {.v = scrshotcmd } },
 	{ MODKEY,                       XK_o,      togglefloating, {0} },
 };
 
