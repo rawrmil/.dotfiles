@@ -14,7 +14,7 @@ alias ls="ls --color=auto"
 function ch() {
 	cd ~/.dotfiles/notes
 	target=`find -type f | fzf --query '/dev/null'`
-	[ $target = '/dev/null' ] || nvim
+	[ -z $target ] || nvim
 }
 alias g="git"
 alias gac="git commit"
