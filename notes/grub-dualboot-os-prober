@@ -1,2 +1,5 @@
-1. sudo pacman -S install os-prober
-
+1.
+sudo pacman -S os-prober
+sudo apt install os-prober
+sudo xbps-install -S os-prober
+2. /etc/default/grub
