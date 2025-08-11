@@ -1,9 +1,18 @@
 1.
-sudo pacman -S os-prober
+sudo pacman -S os-prober ntfs-3g
+or
 sudo apt install os-prober
+or
 sudo xbps-install -S os-prober
 2. /etc/default/grub
 ```grub
-GRUB_DISABLE_OS_PROBER=true
+GRUB_DISABLE_OS_PROBER=false
 ```
-3. 
+3.
+# <efi_partition> = /dev/sda1
+sudo mkdir -p /mnt/winefi
+sudo mount <efi_partition> /mnt/winefi
+4.
+sudo update-grub
+or
+sudo grub-mkconfig -o /boot/grub/grub.cfg
