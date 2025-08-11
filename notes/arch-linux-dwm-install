@@ -1,6 +1,39 @@
+```sh
+1. Check internet connection
+ping archlinux.org
+
+2. Partitioning
+lsblk
+cfdisk /dev/<drive>
+# - default /dev/<drive> is /dev/sda
+# - default /dev/<boot_partition> is /dev/sda1 - 512M
+# - default /dev/<swap_partition> is /dev/sda2 - 4G/8G/your RAM size
+# - default /dev/<root_partition> is /dev/sda3 - remaining space
+
+3. Create filesystems
+mkfs.ext4 /dev/<root_partition>
+mkfs.fat -F32 /dev/<boot_partition>
+mkswap /dev/<swap_partition>
+mount /dev/<root_partition> /mnt
+mkdir -p /mnt/boot/efi
+mount /dev/nvme0n1p4 /mnt/boot/efi
+lsblk
+swapon /dev/nvme0n1p5
+lsblk
+pacstrap /mnt base linux linux-firmware sof-firmware base-devel grub efibootmgr neovim vim networkmanager
+genfstab /mnt
+genfstab /mnt > /mnt/etc/fstab
+cat /mnt/etc/fstab
+arch-chroot /mnt
+ls
+ls -a
+cp .zsh_history /mnt/home/rami/zsh_history_installation
+
+
 1. /etc/pacman.conf
 ```conf
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
 2. pacman -Sl multilib
+```
