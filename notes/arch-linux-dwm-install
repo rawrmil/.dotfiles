@@ -1,3 +1,4 @@
+BASE SYSTEM:
 ```sh
 # 1. Check internet connection
 ping archlinux.org
@@ -33,22 +34,464 @@ swapon /dev/nvme0n1p5
 # - mount so we can work with them + turn the swap on
 
 # 4. Loading the essential Linux packeges to our system
-pacstrap /mnt base linux linux-firmware base-devel sof-firmware grub efibootmgr nano networkmanager
-# linux linux-firmware base-devel - base system utilities (sudo, usermod & stuff), drivers, building tools
-# sof-firmware - soundcard drivers
-# grub efibootmgr - stuff for grub bootloader
+pacstrap /mnt base linux linux-firmware base-devel sof-firmware grub efibootmgr nano vi vim neovim networkmanager
+# - linux linux-firmware base-devel - base system utilities (sudo, usermod & stuff), drivers, building tools
+# - sof-firmware - soundcard drivers
+# - grub efibootmgr - stuff for grub bootloader
 genfstab /mnt
 # - check if right
 genfstab /mnt > /mnt/etc/fstab
 # - create fstab so system will mount it's partitions on startup
 cat /mnt/etc/fstab
+# - check if right
 
-# 5. Setting up the base system (without desktop environment)
+# 5. Configuring the base system (without desktop environment)
 arch-chroot /mnt
+ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
+date
+hwclock --systohc 
+# - setup, check date, synchronize clock
+nano /etc/locale.gen 
+# - open that and uncomment en_US.UTF-8, ru_RU.UTF-8 lines (remove '#' before the line)
+locale-gen
+# - generate the locale
+nano /etc/locale.conf
+# - put 'LANG=en_US.UTF-8' in here
+nano /etc/hostname
+# - put your hostname in here (e. g. 'coolpc228')
+passwd
+# - set your password
+useradd -m -G wheel -s /bin/bash username228
+passwd username228
+# - create your user, add in group 'wheel' and set a password
+EDITOR=nano visudo
+# - uncomment '#%wheel...' line for the sudo access from username228
+systemctl enable NetworkManager
+# - enable NetworkManager so internet will work on the next boot
+
+# 6. GRUB bootloader installation
+grub-install /dev/<boot_partition>
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# (7). Dualboot
+
+
+```
+
+ls
+cd .dotfiles
+ls
+cd
+ch
+ls
+ls
+cd
+ls
+ls
+ls
+cd
 ls
 ls -a
-cp .zsh_history /mnt/home/rami/zsh_history_installation
+mkdir git
+rm .config
+cd .dotfiles
+./setup.sh
+ls
+cd git
+ls
+ls -a
+git clone https://git.suckless.org/dwm
+git clone https://git.suckless.org/st
+git clone https://git.suckless.org/dmenu
+ls
+cd
+ls
+ch
+ch
+ls
+cd
+ls
+cd .dotfiles
+ls
+cd cd
+cd
+nvim .zshrc
+exit
+ch
+ch
+tmux
+ch
+ls
+sudo pacman -S libX11-devel libXft-devel libXinerama-devel freetype-devel
+sudo pacman -Q
+sudo pacman -Qs
+man pacman
+sudo pacman -S man
+man pacman
+man pacman -Qm 
+pacman -Qm 
+pacman -Qm s
+pacman -Qm x11
+pacman -Qm 'x11'
+pacman -Qm '*x11'
+pacman -Qs 'x11'
+man pacman
+pacman -Qs 'x11'
+pacman -Qms 'x11'
+pacman -Qsm 'x11'
+pacman -Qs 'x11'
+pacman -Qs '*sd'
+pacman -Qs '\*sd'
+pacman -Qs '\*s'
+pacman -Qs '\*s\*'
+pacman -Qs
+pacman -Qs 'local'
+pacman -Qs 'perl'
+man pacman query
+man pacman -Qms
+pacman -Qms
+pacman -Qs
+pacman -Qs x11dev
+pacman -Qs x11
+pacman -Ss x11
+pacman -Ss libx11
+sudo pacman -S libx11 libxft xorg-server xorg-xinit
+ls
+exit
+ls
+cd ~
+ls
+cd git
+ls
+ls
+ls -a
+cd ..
+ls
+find . -name dmenu
+ls
+cd git
+git clone https://git.suckless.org/dmenu
+git clone https://git.suckless.org/dwm
+git clone https://git.suckless.org/st
+ls
+ls -a
+g status
+cd ..
+ls
+g status
+ls git
+rm -rf git
+g reset --soft HEAD~2
+g status
+g rm git
+g rm -r git
+ls
+ls -a
+g status
+ls
+cd dwm
+ch
+sudo pacman -S libx11 libxft xorg-server xorg-xinit libxinerama
+sudo pacman -S libx11 libxft xorg-server xorg-xinit libxinerama freetype2
+ls
+pwd
+sudo make install clean
+cd ..
+ls
+cd dmenu
+sudo make install clean
+cd ../st
+sudo make install clean
+exit
+exit
+ls
+cd
+ls
+cp ~/.dotfiles/src/.Xresources ~/.dotfiles/src/.xinitrc .
+ls
+ls -a
+nvim .Xresources
+ls
+ls -a
+nvim .xinitrc
+ls
+startx
+ls
+ls
+pkill dwm
+ls
+ls
+cd .dotfiles
+ls
+nvim scripts/dwm/dwm-loop.sh
+ls
+cd
+ls
+ln -s src/git/dwm/config.h /home/rami/git/dwm
+rm /home/rami/git/dwm/config.h
+sudo rm /home/rami/git/dwm/config.h
+sudo rm /home/rami/git/st/config.h
+ln -s src/git/dwm/config.h /home/rami/git/dwm
+ln -s src/git/st/config.h /home/rami/git/st
+cd ~/git/dwm
+ls
+ls
+sudo make install clean
+ls
+ln -s /home/rami/.dotfiles/src/git/st/config.h /home/rami/git/st/config.h
+rm config.h
+rm ../st/config.h
+ln -s /home/rami/.dotfiles/src/git/st/config.h /home/rami/git/st/config.h
+ln -s /home/rami/.dotfiles/src/git/dwm/config.h /home/rami/git/dwm/config.h
+ls
+nvim config.
+nvim config.h
+ls
+sudo make install clean
+cd ../st
+sudo make install clean
+cd
+ls
+startx
+ch
+tmux
+ls
+ch
+sudo xbps-install -S xrandr xrdb setxkbmap xsetroot xclip\
 
+sudo pacman -S xrandr xrdb setxkbmap xsetroot xclip\
+
+sudo pacman -S xorg-xrandr xorg-xrdb xorg-setxkbmap xorg-xsetroot xorg-xclip\
+
+sudo pacman -S xorg-xrandr xorg-xrdb xorg-setxkbmap xorg-xsetroot xclip\
+
+ls
+pkill dwm
+startx
+sudo pacman -S picom
+pkill dwm
+startx
+pkill dwm
+startx | nvim
+pkill dwm
+startx > log.log
+pkill dwm
+ls
+nvim log.log
+rm log.log
+ls
+ls
+sudo reboot
+startx
+pkill dwm
+sudo pacman -S firacode
+sudo pacman -S fonts-firacode
+sudo pacman -Ss fira
+sudo pacman -Ss firacode
+sudo pacman -S ttf-fira-mono
+ls
+startx
+ls
+ls
+sudo pacman -S firefox-esr
+sudo pacman -S firefox
+ls
+tmux
+ls
+ch 
+sudo pacman -S mesa-dri
+sudo pacman -S mesa
+grep -r 'alsa'
+sudo pacman -S alsa-firmware alsa-utils 
+dmenu
+dmenu
+cd ~/git
+ls
+cd dwm
+cd dm
+ls
+cd ..
+ls
+cd dmenu
+ls
+./dmenu_run
+sudo make install clean
+dmenu
+cd /etc
+nvim ~/zsh_history_installation
+sudo -E nvim ~/zsh_history_installation
+nvim ~/.zsh_history
+sudo -E nvim ~/zsh_history_installation
+nvim ~/.zsh_history
+nvim ~/.bash_history
+sudo -E nvim /root/.bash_history
+sudo cp /root/.bash_history ~/post_install
+cat ~/post_install
+pwd
+ls
+ls
+nvim locale.gen
+sudo -E nvim locale.gen
+nvim ~/post_install
+sudo -E nvim ~/post_install
+sudo locale-gen
+grep -r en_US
+sudo -E nvim locale.conf
+locale-gen
+sudo locale-gen
+dmenu
+dmenu
+ls
+cd 
+cd ~/git
+ls
+cd dmenu
+ls
+sudo make install clean
+dmenu
+ls
+cd
+sudo -E nvim /etc/locale.conf
+ls
+exit
+sudo reboot
+ls
+ls
+ls -a
+startx
+sudo pacman -S firefox
+sudo pacman -S fastfetch
+ff
+fastfetch
+ls
+ls
+cd Downloads/
+ls
+cd ..
+mc Downloads/v2rayN-linux-64.AppImage .
+ls
+mv Downloads/v2rayN-linux-64.AppImage .
+ls
+chmod +x v2rayN-linux-64.AppImage
+mv v2rayN-linux-64.AppImage v2rayn
+ls
+mv v2rayn .local/bin
+ls
+ls
+nvim .zshrc
+echo PATH
+echo $PATH
+ls
+cd .local
+ls
+mv bin v2rayn
+ls
+mkdir bin
+mv v2rayn bin
+ls
+exit
+: 1754912305:0;ls
+: 1754912306:0;ls
+: 1754912310:0;ls
+: 1754912331:0;ls
+: 1754912335:0;ls
+: 1754912345:0;ls
+: 1754912346:0;ls -a
+: 1754912361:0;ls
+: 1754912364:0;cd
+: 1754912365:0;ls
+: 1754912383:0;v2rayn
+: 1754912402:0;sduo pacman -Ss fuse
+: 1754912405:0;sudo pacman -Ss fuse
+: 1754912412:0;sudo pacman -S fuse
+: 1754912418:0;ls
+: 1754912469:0;sudo pacman -S telegram-desktop
+: 1754912514:0;telegram-desktop
+: 1754912517:0;sudo pacman -S telegram-desktop
+: 1754912530:0;ls
+: 1754912551:0;sudo reboot
+: 1754912584:0;ls
+: 1754912588:0;startx
+: 1754913032:0;ls
+: 1754913035:0;nvim .X
+: 1754913037:0;nvim .Xresources
+: 1754913050:0;ls
+: 1754913079:0;fastfetch
+: 1754913080:0;ls
+: 1754913221:0;gh auth login
+: 1754913244:0;ls
+: 1754913272:0;Ð´Ñ«
+: 1754913273:0;ls
+: 1754913276:0;cd .dotfiles
+: 1754913278:0;g status
+: 1754913278:0;ls
+: 1754913282:0;du -sh .git
+: 1754913285:0;ls
+: 1754913287:0;ls
+: 1754913301:0;ls
+: 1754913308:0;ls
+: 1754913309:0;cd
+: 1754913311:0;cd git/dwm
+: 1754913312:0;ls
+: 1754913313:0;nvim config.h
+: 1754913461:0;sudo make install clean
+: 1754913467:0;sudo make install clean
+: 1754913502:0;ls
+: 1754913505:0;cd git/dwm
+: 1754913506:0;ls
+: 1754913509:0;nvim config.h
+: 1754913584:0;sudo make install clean
+: 1754913590:0;sudo make install clean
+: 1754913600:0;ls
+: 1754913619:0;ls
+: 1754915101:0;sudo pacman -Ss emoji
+: 1754915111:0;ch \ 
+: 1754915111:0;ch
+: 1754915134:0;grep -r emoji
+: 1754915163:0;sudo pacman -S noto-fonts-cjk noto-fonts-emoji
+: 1754915310:0;sudo pacman -S steam
+: 1754915325:0;sudo pacman -Ss steam
+: 1754915504:0;sudo pacman -S yay
+: 1754915546:0;ls
+: 1754915550:0;git clone https://aur.archlinux.org/yay.git
+: 1754915551:0;ls
+: 1754915553:0;mv yay git
+: 1754915554:0;cd git
+: 1754915554:0;ls
+: 1754915556:0;cd yay
+: 1754915556:0;ls
+: 1754915567:0;makepkg -si
+: 1754915608:0;ls
+: 1754915622:0;yay
+: 1754915632:0;sudo yay -S steam
+: 1754915635:0;yay -S steam
+: 1754915643:0;yay -Ss steam
+: 1754915650:0;yay -Ss steam
+: 1754915653:0;yay -Ss steam | nvim
+: 1754915702:0;ls
+: 1754915705:0;ls
+: 1754915706:0;cd
+: 1754915706:0;ls
+: 1754915724:0;ls
+: 1754915724:0;ch
+: 1754915727:0;ls
+: 1754915735:0;nvim arch-linux-dwm-install
+: 1754915753:0;sudo -E nvim /etc/pacman.conf
+: 1754915778:0;ls
+: 1754915783:0;nvim arch-linux-dwm-install
+: 1754915793:0;ls
+: 1754915795:0;g status
+: 1754915804:0;sudo pacman -Sl multilib
+: 1754915809:0;sudo pacman -Sy
+: 1754915811:0;sudo pacman -Sl multilib
+: 1754915820:0;sudo pacman -S steam
+: 1754915877:0;ls
+: 1754915879:0;ls
+: 1754915880:0;cd
+: 1754916546:0;alsamixer
+: 1754916684:0;sudo poweroff
+: 1754916725:0;ls
+: 1754916741:0;cp .zsh_history rami_post_install
 
 1. /etc/pacman.conf
 ```conf
