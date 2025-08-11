@@ -2,7 +2,7 @@
 
 #set -x
 
-stow_flags="--ignore .Xresources --ignore .xinitrc --ignore git"
+stow_flags=
 
 # D E P E N D E N C I E S
 
@@ -13,7 +13,7 @@ zsh_chsh_path="/bin/zsh"
 if [ `echo $PREFIX | grep -o "com.termux"` ]; then
 	zsh_chsh_path="zsh"
 else
-	stow_flags="$stow_flags --ignore .termux"
+	stow_flags+="$stow_flags --ignore .termux"
 fi
 
 # U T I L S
@@ -75,6 +75,8 @@ if hascmd "envsubst"; then
 fi
 
 if hascmd "stow"; then
+	stow_flags="--ignore .Xresources --ignore .xinitrc --ignore git"
 	echo "Stow Flags: $stow_flags"
+	mkdir -p ~/.config
 	cd ~/.dotfiles && stow src $stow_flags
 fi
