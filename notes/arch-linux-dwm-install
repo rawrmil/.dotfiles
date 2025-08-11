@@ -1,0 +1,6 @@
+1. /etc/pacman.conf
+```conf
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
+2. pacman -Sl multilib
