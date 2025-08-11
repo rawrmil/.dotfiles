@@ -3,3 +3,7 @@ sudo pacman -S os-prober
 sudo apt install os-prober
 sudo xbps-install -S os-prober
 2. /etc/default/grub
+```grub
+GRUB_DISABLE_OS_PROBER=true
+```
+3. 
