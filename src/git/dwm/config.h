@@ -14,7 +14,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "q", "w", "e", "r", "a" };
+static const char *tags[] = { "1", "2", "3", "q", "w", "e", "a", "s", "d" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -24,6 +24,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Firefox",  NULL,       NULL,       1 << 0,       0,           -1 },
 	{ "v2rayN",   NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "Telegram", NULL,       NULL,       1 << 4,       0,           -1 },
 };
 
 /* layout(s) */
@@ -91,12 +92,12 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_q,                      4)
-	TAGKEYS(                        XK_w,                      5)
-	TAGKEYS(                        XK_e,                      6)
-	TAGKEYS(                        XK_r,                      7)
-	TAGKEYS(                        XK_a,                      8)
+	TAGKEYS(                        XK_q,                      3)
+	TAGKEYS(                        XK_w,                      4)
+	TAGKEYS(                        XK_e,                      5)
+	TAGKEYS(                        XK_a,                      6)
+	TAGKEYS(                        XK_s,                      7)
+	TAGKEYS(                        XK_d,                      8)
 	{ MODKEY|ShiftMask,             XK_m,      quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrshotcmd } },
 	{ MODKEY,                       XK_o,      togglefloating, {0} },
