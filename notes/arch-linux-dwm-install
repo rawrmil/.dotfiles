@@ -1,29 +1,49 @@
 ```sh
-1. Check internet connection
+# 1. Check internet connection
 ping archlinux.org
 
-2. Partitioning
+# 2. Partitioning
 lsblk
+# use this to check partitions and their mounts
 cfdisk /dev/<drive>
-# - default /dev/<drive> is /dev/sda
-# - default /dev/<boot_partition> is /dev/sda1 - 512M
-# - default /dev/<swap_partition> is /dev/sda2 - 4G/8G/your RAM size
-# - default /dev/<root_partition> is /dev/sda3 - remaining space
+# main drive /dev/<drive> is /dev/sda
+# default /dev/<boot_partition> is /dev/sda1 - 512M
+# default /dev/<swap_partition> is /dev/sda2 - 4G/8G/your RAM size
+# default /dev/<root_partition> is /dev/sda3 - remaining space
+# or
+# main drive /dev/<drive> is /dev/nvme0n1
+# default /dev/<boot_partition> is /dev/nvme0n1p1
+# default /dev/<swap_partition> is /dev/nvme0n1p2
+# default /dev/<root_partition> is /dev/nvme0n1p3
+# or
+# default /dev/<boot_partition> is /dev/nvme0n1p4
+# default /dev/<swap_partition> is /dev/nvme0n1p5
+# default /dev/<root_partition> is /dev/nvme0n1p6
+# if Windows is on /dev/nvme0n1p1 to ...p3
 
-3. Create filesystems
+# 3. Create your linux rootfs (your filesystem)
 mkfs.ext4 /dev/<root_partition>
 mkfs.fat -F32 /dev/<boot_partition>
 mkswap /dev/<swap_partition>
+# - create filesystems
 mount /dev/<root_partition> /mnt
 mkdir -p /mnt/boot/efi
 mount /dev/nvme0n1p4 /mnt/boot/efi
-lsblk
 swapon /dev/nvme0n1p5
-lsblk
-pacstrap /mnt base linux linux-firmware sof-firmware base-devel grub efibootmgr neovim vim networkmanager
+# - mount so we can work with them + turn the swap on
+
+# 4. Loading the essential Linux packeges to our system
+pacstrap /mnt base linux linux-firmware base-devel sof-firmware grub efibootmgr nano networkmanager
+# linux linux-firmware base-devel - base system utilities (sudo, usermod & stuff), drivers, building tools
+# sof-firmware - soundcard drivers
+# grub efibootmgr - stuff for grub bootloader
 genfstab /mnt
+# - check if right
 genfstab /mnt > /mnt/etc/fstab
+# - create fstab so system will mount it's partitions on startup
 cat /mnt/etc/fstab
+
+# 5. Setting up the base system (without desktop environment)
 arch-chroot /mnt
 ls
 ls -a
