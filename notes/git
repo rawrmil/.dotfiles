@@ -1,3 +1,7 @@
+# P A S S W D
+
+git config --global credential.helper store
+
 # R E N A M E   C O M M I T
 git commit --amend
 
