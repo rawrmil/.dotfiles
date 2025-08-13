@@ -16,6 +16,8 @@ while true; do
 	setxkbmap -layout us,ru -option grp:alt_shift_toggle
 	picom -b --config ~/dots/dwm/picom.conf
 	flameshot &
+	pipewire &
+	wireplumber &
 	xrdb -merge $HOME/.Xresources
 	~/.dotfiles/scripts/dwm/dwm-bar.sh &
 	dwm
