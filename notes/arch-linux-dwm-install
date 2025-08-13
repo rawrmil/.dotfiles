@@ -73,9 +73,26 @@ systemctl enable NetworkManager
 grub-install /dev/<boot_partition>
 grub-mkconfig -o /boot/grub/grub.cfg
 
-# (7). Dualboot
+# 7. Restart
+exit
+# - exit from chroot
+umount -a
+# - unmount everything
+reboot
+# - reboot for testing
 
-
+# (8). Dualboot
+# Login into your user
+sudo pacman -S os-prober ntfs-3g
+# - install dependencies
+sudo nano /etc/default/grub
+# - uncomment 'GRUB_DISABLE_OS_PROBER=false'
+sudo mkdir -p /mnt/winefi
+sudo mount <windows_efi_partition> /mnt/winefi
+# - usually <efi_partition> = /dev/sda1
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+# - make config and ensure 'Windows' will appear in the responce
+sudo reboot
 ```
 
 ls
