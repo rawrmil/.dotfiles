@@ -48,6 +48,7 @@ if hascmd "git"; then
 	git config --global alias.c 'commit'
 	git config --global alias.cl 'clone'
 	git config --global alias.aliases 'config --get-regexp "^alias"'
+	git config --global credential.helper 'store'
 fi
 
 if hascmd "zsh" && [ `basename "$SHELL"` != "zsh" ]; then
