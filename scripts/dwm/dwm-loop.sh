@@ -17,6 +17,8 @@ while true; do
 	picom -b --config ~/dots/dwm/picom.conf
 	flameshot &
 	pipewire &
+	pipewire-pulse &
+	sleep 1
 	wireplumber &
 	xrdb -merge $HOME/.Xresources
 	~/.dotfiles/scripts/dwm/dwm-bar.sh &
