@@ -154,3 +154,7 @@ git submodule deinit -f PATH
 git rm -f PATH
 rm -rf .git/modules/PATH
 # - delete
+
+#squash
+g rebase -i HEAD~2
+# - do this and change second to squash
