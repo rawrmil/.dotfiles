@@ -1,0 +1,27 @@
+# Headers:
+grep -n "^#include" file.c
+vimgrep "^#include" %
+
+# Macros:
+grep -n "#define [A-Z_][A-Z0-9_]*" file.c
+vimgrep "#define [A-Z_][A-Z0-9_]*" %
+
+# Types:
+grep -n "typedef struct\|_t;" file.c
+vimgrep "typedef struct\|_t;" %
+
+# Globals:
+grep -n " g_[a-zA-Z0-9_]*;" file.c
+vimgrep " g_[a-zA-Z0-9_]*;" %
+
+# Functions:
+grep -n "^[a-z][a-z0-9_]*(" file.c
+vimgrep "^[a-z][a-z0-9_]*(" %
+
+# Constants:
+grep -n "const [a-zA-Z]\+ =" file.c
+vimgrep "const [a-zA-Z]\+ =" %
+
+# Main:
+grep -n "int main(" file.c
+vimgrep "int main(" %

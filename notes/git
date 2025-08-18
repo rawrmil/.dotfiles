@@ -68,6 +68,10 @@ git log --follow [FILE]
 - show commit that changed file even across renames
 git log --stat -M
 - show all commit logs with indication of any paths that moved
+git log --oneline
+- oneliners (based)
+git log --graph
+- graph (based)
 
 git show [SHA_CODE]
 - show information about object in human-readable format
@@ -158,3 +162,6 @@ rm -rf .git/modules/PATH
 #squash
 g rebase -i HEAD~2
 # - do this and change second to squash
+
+# developer branches
+git checkout -b dev/devname
