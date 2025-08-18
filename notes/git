@@ -1,6 +1,3 @@
-##passwd
-git config --global credential.helper store
-
 ##setup
 git config --global user.name "FIRSTNAME LASTNAME"
 git config --global user.email "EMAIL"
@@ -49,6 +46,9 @@ git checkout [NAME]
 
 git checkout -b NEW_BRANCH OLD_BRANCH
 # - clone branch
+
+git push -u origin [BRANCHNAME]
+# - push branch to remote
 
 
 ##inspection
@@ -159,9 +159,14 @@ git rm -f PATH
 rm -rf .git/modules/PATH
 # - delete
 
-#squash
+# --- squash ---
 g rebase -i HEAD~2
 # - do this and change second to squash
 
-# developer branches
+# --- developer branches ---
 git checkout -b dev/devname
+
+# --- credentials ---
+git config --global credential.helper store
+
+git push -u origin [BRANCHNAME]
