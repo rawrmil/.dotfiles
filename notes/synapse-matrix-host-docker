@@ -1,5 +1,68 @@
+cd docker/synapse
+# - or something like that
+
 docker run -it --rm \
   -v $(pwd)/data:/data \
   -e SYNAPSE_SERVER_NAME=yourdomain.com \
   -e SYNAPSE_REPORT_STATS=no \
   matrixdotorg/synapse:latest generate
+
+# Create a docker-compose.yml file:yaml
+```yalm
+version: '3.8'
+services:
+  synapse:
+    image: matrixdotorg/synapse:latest
+    container_name: synapse
+    volumes:
+      - ./data:/data
+    ports:
+      - "8008:8008"
+    environment:
+      - SYNAPSE_SERVER_NAME=yourdomain.com
+      - SYNAPSE_REPORT_STATS=no
+    restart: unless-stopped
+```
+
+nano data/homeserver.yaml
+
+# Key settings to check:server_name: yourdomain.com
+# enable_registration: true (if you want open registration)
+# database: Uses SQLite by default; for production, consider PostgreSQL (see Step 7).
+
+docker-compose up -d
+
+curl http://localhost:8008/_matrix/client/versions
+
+# --- PostgreSQL ---
+
+# Remove sqlite stuff and add:
+```yaml
+  postgres:
+    image: postgres:latest
+    container_name: synapse_postgres
+    environment:
+      - POSTGRES_DB=synapse
+      - POSTGRES_USER=synapse
+      - POSTGRES_PASSWORD=your_secure_password
+      - POSTGRES_INITDB_ARGS=--encoding=UTF8 --lc-collate=C --lc-ctype=C
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+```
+
+# data/homeserver.conf
+```yaml
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: your_secure_password
+    database: synapse
+    host: postgres
+    cp_min: 5
+    cp_max: 10
+```
+
+# --- add user ---
+docker exec -it synapse register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008
