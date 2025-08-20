@@ -66,3 +66,45 @@ database:
 
 # --- add user ---
 docker exec -it synapse register_new_matrix_user -c /data/homeserver.yaml http://localhost:8008
+
+
+# --- nginx.conf ---
+```conf
+server {
+    listen 443 ssl;
+    server_name matrix.hasfam.ru;
+
+    ssl_certificate /etc/letsencrypt/live/hasfam.ru/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/hasfam.ru/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_ciphers EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH;
+
+    # Matrix-specific proxy settings
+    location /_matrix {
+        proxy_pass http://localhost:8008;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        client_max_body_size 50M; # Allow larger uploads for media
+        proxy_buffer_size 128k;   # Handle large federation responses
+        proxy_buffers 4 256k;
+        proxy_busy_buffers_size 256k;
+    }
+
+    # Well-known endpoint for client discovery
+    location /.well-known/matrix/client {
+        return 200 '{"m.homeserver": {"base_url": "https://matrix.hasfam.ru"}}';
+        add_header Content-Type application/json;
+        add_header Access-Control-Allow-Origin *;
+    }
+
+    # Well-known endpoint for server federation
+    location /.well-known/matrix/server {
+        return 200 '{"m.server": "matrix.hasfam.ru:443"}';
+        add_header Content-Type application/json;
+        add_header Access-Control-Allow-Origin *;
+    }
+}
+```
