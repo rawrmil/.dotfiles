@@ -20,3 +20,10 @@ git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 sudo pacman -S base-devel
 makepkg -si
+
+# --- multilib ---
+/etc/pacman.conf
+```
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+```
