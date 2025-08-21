@@ -1,5 +1,6 @@
+sudo pacman -S elogind
 sudo pacman -S hyprland xorg-xwayland
 sudo pacman -S grim slurp wl-clipboard
 
 sudo pacman -S alsa-firmware xdg-desktop-portal-hyprland
-sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack alsa-utils
+sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-bluetooth pipewire-alsa pipewire-jack alsa-utils
