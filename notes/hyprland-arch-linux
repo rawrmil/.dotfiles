@@ -2,4 +2,4 @@ sudo pacman -S hyprland xorg-xwayland
 sudo pacman -S grim slurp wl-clipboard
 
 sudo pacman -S alsa-firmware xdg-desktop-portal-hyprland
-sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack
+sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack alsa-utils
