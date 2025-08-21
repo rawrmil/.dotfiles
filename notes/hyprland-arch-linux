@@ -1,6 +1,17 @@
-sudo pacman -S elogind
 sudo pacman -S hyprland xorg-xwayland
-sudo pacman -S grim slurp wl-clipboard
 
-sudo pacman -S alsa-firmware xdg-desktop-portal-hyprland
+sudo pacman -S ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly
+# - for codecs
+
+sudo pacman -S grim slurp wl-clipboard
+# - for screenshots
+
+sudo pacman -S xdg-desktop-portal-hyprland
+# - for obs
+
 sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-bluetooth pipewire-alsa pipewire-jack alsa-utils
+systemctl --user enable --now pipewire
+systemctl --user enable --now wireplumber
+systemctl --user enable --now pipewire-pulse
+# - for sound & obs
+
