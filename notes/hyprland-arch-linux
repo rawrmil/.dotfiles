@@ -1,2 +1,5 @@
-sudo pacman -S hyprland
+sudo pacman -S hyprland xorg-xwayland
 sudo pacman -S grim slurp wl-clipboard
+
+sudo pacman -S alsa-firmware xdg-desktop-portal-hyprland
+sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack
