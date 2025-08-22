@@ -5,6 +5,7 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.local/termux:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export TERM=xterm-256color
 
 # Dotfiles synchronisation
 exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
