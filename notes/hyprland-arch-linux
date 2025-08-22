@@ -27,3 +27,7 @@ makepkg -si
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 ```
+
+# --- security ---
+/etc/security/faillock.conf
+# - set less than 10 minutes
