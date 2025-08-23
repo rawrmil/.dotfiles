@@ -12,13 +12,13 @@ exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 
 # Aliases
 alias ls="ls --color=auto"
+alias g="git"
+alias gac="git commit"
 function ch() {
 	cd ~/.dotfiles/notes
 	target=`find -type f | fzf`
 	[ -z $target ] || nvim $target
 }
-alias g="git"
-alias gac="git commit"
 
 autoload -U colors && colors
 #PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
