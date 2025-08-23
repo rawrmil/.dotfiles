@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 #set -x
 
@@ -63,7 +63,7 @@ if hascmd "envsubst"; then
 fi
 
 if hascmd "stow"; then
-	stow_flags="--ignore .Xresources --ignore .xinitrc --ignore git"
+	stow_flags="--ignore .Xresources --ignore .xinitrc --ignore git --no-folding"
 	echo "Stow Flags: $stow_flags"
 	mkdir -p ~/.config
 	cd ~/.dotfiles && stow src $stow_flags
