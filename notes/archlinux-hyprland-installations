@@ -1,1 +1,79 @@
-
+sudo pacman -S ttf-firacode
+sudo pacman -Ss fira
+sudo pacman -Ss ttf-fira-code
+sudo pacman -S ttf-fira-code
+sudo pacman -S firefox
+sudo pacman -S wofi
+sudo pacman -S htop btop
+sudo pacman -S telegram
+sudo pacman -S telegram-desktop
+sudo pacman -S grim slurp wl-clipboard
+sudo pacman -S foot
+sudo pacman -S less
+sudo pacman -S obs-studio
+sudo pacman -S alsa-firmware 
+sudo pacman -S hyprland xwayland\
+sudo pacman -S hyprland xorg-xwayland\
+sudo pacman -S alsa-firmware xdg-desktop-portal-hyprland\
+sudo pacman -S pipewire wireplumber pipewire-pulse pipewire-alsa pipewire-jack
+sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack\
+sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-alsa pipewire-jack alsa-utils\
+sudo pacman -S pipewire wireplumber pipewire-audio pipewire-pulse pipewire-bluetooth pipewire-alsa pipewire-jack alsa-utils\
+sudo pacman -S elogind\
+sudo pacman -Ss elogind\
+sudo pacman -S hyfetch
+sudo pacman -S pavucontrol
+sudo pacman -S ffmpeg
+sudo pacman -S vlc
+sudo pacman -Suy 
+sudo pacman -S codec2
+sudo pacman -S ffmpeg gst-libav gst-plugins-good gst-plugins-bad gst-plugins-ugly
+sudo pacman -S mpv
+sudo pacman -S discord
+sudo pacman -S wireguard-tools networkmanager-wireguard
+sudo pacman -S wireguard-tools networkmanager-wireguard
+sudo pacman -S wireguard-tools networkmanager-wireguard
+sudo pacman -S wireguard-tools
+sudo pacman -Ss nslookup
+sudo pacman -S bind
+sudo pacman -S openresolv
+sudo pacman -S quomi
+sudo pacman -S xray
+sudo pacman -Ss xray
+sudo pacman -S xray-core
+sudo pacman -Ss v2ray
+sudo pacman -S v2ray
+sudo pacman -S v2ray
+sudo pacman -R v2ray
+sudo pacman -Ss v2ray
+sudo pacman -Ss nekoray
+sudo pacman -S proxychains-ng
+sudo pacman -S proxychains-ng
+sudo pacman -S libnetfilter_queue
+sudo pacman -S nft
+sudo pacman -S nftables
+sudo pacman -S steam
+sudo pacman -S 
+sudo pacman -Sy
+sudo pacman -Sl
+sudo pacman -Sl
+sudo pacman -S steam
+sudo pacman -S steam
+sudo pacman -S qbittorrent
+sudo pacman -S qbittorrent
+sudo pacman -Ss 7z
+sudo pacman -S 7zip
+sudo pacman -S wine wine-mono wine-gecko winetricks
+sudo pacman -Ss winegui
+sudo pacman -S winegui
+sudo pacman -S winegui-bin
+sudo pacman -S mingw-w64
+sudo pacman -S mingw-w64
+sudo pacman -S dolphin
+sudo pacman -S v4l-utils
+sudo pacman -S cheese
+sudo pacman -R cheese
+sudo pacman -S rclone
+sudo pacman -S openssh
+sudo pacman -S nextcloud-client
+sudo pacman -S man
