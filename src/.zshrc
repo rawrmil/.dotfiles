@@ -13,7 +13,7 @@ exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 # Aliases
 alias ls="ls --color=auto"
 alias g="git"
-alias gac="git commit"
+alias p="sudo pacman"
 function ch() {
 	cd ~/.dotfiles/notes
 	target=`find -type f | fzf`
