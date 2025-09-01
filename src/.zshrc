@@ -10,6 +10,8 @@ export TERM=xterm-256color
 # Dotfiles synchronisation
 exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 
+exec /home/rami/git/tore/build/tore
+
 # Aliases
 alias ls="ls --color=auto"
 alias g="git"
