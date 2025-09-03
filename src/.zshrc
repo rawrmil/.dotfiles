@@ -10,7 +10,9 @@ export TERM=xterm-256color
 # Dotfiles synchronisation
 exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 #exec ~/.todo/loop.sh > ~/.todo/loop.log 2>&1 &!
-[ ! pgrep -f "$HOME/.todo/sync.sh" > /dev/null ] && ~/.todo/watcher.sh > ~/.todo/watcher.log &!
+if ! pgrep -f "$HOME/.todo/sync.sh" > /dev/null; then
+	~/.todo/watcher.sh > ~/.todo/watcher.log &!
+fi
 
 # Aliases
 alias ls="ls --color=auto"
