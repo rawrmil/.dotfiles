@@ -11,7 +11,7 @@ export TERM=xterm-256color
 exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 #exec ~/.todo/loop.sh > ~/.todo/loop.log 2>&1 &!
 if ! pgrep -f "$HOME/.todo/sync.sh" > /dev/null; then
-	~/.todo/watcher.sh > ~/.todo/watcher.log &
+	~/.todo/watcher.sh > ~/.todo/watcher.log &!
 fi
 
 # Aliases
