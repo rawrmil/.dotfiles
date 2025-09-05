@@ -11,7 +11,7 @@ export TERM=xterm-256color
 exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 #exec ~/.todo/loop.sh > ~/.todo/loop.log 2>&1 &!
 #exec ~/.todo/watcher.sh > ~/.todo/watcher.log 2>&1 &!
-nohup ~/.todo/watcher.sh &
+nohup ~/.todo/watcher.sh > ~/.todo/watcher.log 2>&1 &
 
 # Aliases
 alias ls="ls --color=auto"
