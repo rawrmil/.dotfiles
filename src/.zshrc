@@ -17,6 +17,7 @@ sh ~/.todo/watcher.sh daemon
 alias ls="ls --color=auto"
 alias g="git"
 alias p="sudo pacman"
+alias d="done.sh"
 function ch() {
 	cd ~/.dotfiles/notes
 	target=`find -type f | fzf`
