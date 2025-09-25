@@ -26,3 +26,10 @@ services:
 ```
 2. docker-compose up -v
 3. Connect over RDP:3389 login:docker,password:admin (remmina)
+4.
+OPTIMIZER:
+https://github.com/hellzerg/optimizer/releases/
+KEY REBIND:
+Microsoft Store - Power Toys
+- ALT RIGHT -> WINKEY
+- WINKEY -> Disable
