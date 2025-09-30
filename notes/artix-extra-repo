@@ -1,0 +1,10 @@
+pacman -S artix-archlinux-support
+wget https://archlinux.org/mirrorlist/all/ -O /etc/pacman.d/mirrorlist-arch
+
+Edit /etc/pacman.conf and activate the mirror.
+[extra]
+Include = /etc/pacman.d/mirrorlist-arch
+
+Populate the Arch Linux keyring and synchronize the repository
+pacman-key --populate archlinux
+pacman -Syu
