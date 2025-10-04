@@ -1,1 +1,7 @@
 xrandr --output eDP1 --mode 1920x1200
+
+
+cvt 1280 854 60
+xrandr --newmode "1280x854_60.00" 89.25  1280 1352 1480 1680  854 857 867 887 -hsync +vsync
+xrandr --addmode eDP-1 "1280x854_60.00"
+xrandr --output eDP-1 --mode 1280x854_60.00
