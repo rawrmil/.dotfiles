@@ -1,0 +1,2 @@
+sudo cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
+sudo reflector -c RU -l 10 -p https --save /etc/pacman.d/mirrorlist
