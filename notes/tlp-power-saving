@@ -1,0 +1,2 @@
+sudo xbps-install tlp
+sudo xbps-install powertop

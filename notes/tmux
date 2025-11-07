@@ -1,0 +1,42 @@
+# Starting/work with sessions
+tmux new -s name    - start new with session name:
+tmux a              - attach
+tmux a -t name      - attach with name
+tmux ls             - list sessions
+tmux kill-session -t name - kill session
+( / ) - previous/next session
+s - list sessions
+
+# Kill all sessions
+tmux kill-server
+tmux ls | grep : | cut -d. -f1 | awk '{print substr($1, 0, length($1)-1)}' | xargs kill
+
+# Windows (tabs): Ctrl+b + ...
+c - create window
+w - list windows
+n - next window
+p - previous window
+f - find window
+, - name window
+& - kill window
+
+# Panes (splits)
+% - vertical split
+" - horizontal split
+o - swap panes
+q - show pane numbers
+x - kill pane
++ - break pane into window (e.g. to select text by mouse to copy)
+- - restore pane from window
+_ - (space) toggle between layouts
+; - Toggle last active pane.
+<prefix> q - pane numbers
+<prefix> { - move left
+<prefix> } - move right
+<prefix> z - toggle pane zoom
+
+# Misc
+d  detach
+t  big clock
+?  list shortcuts
+:  prompt

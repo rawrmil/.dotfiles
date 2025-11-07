@@ -1,0 +1,11 @@
+git checkout v0.7
+# That's yeah
+
+sudo xbps-install -S \
+	libinput libinput-devel \
+	wayland wayland-devel wlroots wlroots-devel wayland-protocols wayland-utils wl-clipboard \
+	pkg-config libxcb-devel xcb-util-wm-devel libxkbcommon-devel \
+	seatd
+
+sudo usermod -aG video,audio,input,seat rami
+sudo ln -s /etc/sv/seatd /var/service

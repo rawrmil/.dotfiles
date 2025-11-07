@@ -1,0 +1,11 @@
+sudo apt install build-essential
+# DWM
+sudo apt install libx11-dev libxft-dev libxinerama-dev
+sudo apt remove xdg-dektop-portal
+# Audio
+sudo apt install alsa-utils pulseaudio
+sudo apt install pipewire pipewire-audio pipewire-alsa
+# Fonts
+sudo apt install fonts-firacode fonts-noto-color-emoji
+# Asian
+sudo apt install fonts-noto-cjk fonts-noto-cjk-extra

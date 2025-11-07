@@ -1,0 +1,25 @@
+proot-distro install void
+proot-distro login void --isolated --shared-tmp
+
+# Doesn't work, can't add to sudo for some reason
+#useradd rami
+#usermod -aG wheel rami
+#/etc/sudoers
+#%wheel ALL=(ALL:ALL) ALL
+#proot-distro login void --isolated --shared-tmp --user rami
+
+xbps-install xdg-user-dirs xdg-utils
+
+xbps-install git gcc clang make xorg-minimal
+
+git checkout v0.7
+# That's yeah
+
+sudo xbps-install -S \
+	wayland wayland-devel wlroots wlroots-devel wayland-protocols wayland-utils wl-clipboard \
+	pkg-config libxcb-devel xcb-util-wm-devel libxkbcommon-devel \
+	seatd \
+	libinput libinput-devel
+
+sudo usermod -aG video,audio,input,seat rami
+sudo ln -s /etc/sv/seatd /var/service

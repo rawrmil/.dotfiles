@@ -1,0 +1,2 @@
+xinput list-props 10 | grep "Accel"
+xinput set-prop 10 "libinput Accel Speed" -0.7

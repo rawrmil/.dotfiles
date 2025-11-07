@@ -1,0 +1,5 @@
+.local/bin/telegram-web
+```
+#!/bin/sh
+firefox --new-window https://web.telegram.org
+```

@@ -1,0 +1,64 @@
+# L I S T I N G
+
+who
+- list all sessions
+
+cat /etc/passwd | grep '/home' | cut -d: -f1
+- list all users that have /home dir
+
+getent passwd
+cat /etc/group
+getent passwd | cut -d: -f1
+- list all users
+
+getent group 
+cat /etc/group
+getent group | cut -d: -f1
+- list all groups
+
+# A D D I N G
+
+useradd [username]
+useradd --uid [ID] [USERNAME]
+useradd --shell [PATH] [USERNAME]
+useradd --groups [GROUP1,GROUP2,...] [USERNAME]
+useradd --create-home [USERNAME]
+
+useradd --skel [TEMPLATE_HOME_PATH] --create-home [USERNAME]
+- with template /home directory
+
+useradd --system [USERNAME]
+- wothout /home dir
+
+# D E L E T I N G
+
+userdel [USERNAME]
+
+userdel -f [USERNAME]
+- even if user still logged in
+
+userdel --remove [USERNAME]
+- with the /home folder
+
+usermod -aG [GROUPNAME] [USERNAME]
+
+# G R O U P S
+
+usermod -aG [GROUPNAME] [USERNAME]
+groupadd [GROUPNAME]
+groupdel [GROUPNAME]
+
+deluser [USERNAME] [GROUPNAME]
+- delete user from group
+
+# M O D I F Y
+
+usermod --login [NEW_USERNAME] [USERNAME]
+usermod --uid [ID] [USERNAME]
+usermod --shell [PATH] [USERNAME]
+usermod --append --groups [GROUP1,GROUP2,...] [USERNAME]
+usermod --home [PATH] [USERNAME]
+usermod --move-home --home [PATH] [USERNAME]
+
+usermod -a -G sudo [USER]
+- grant sudo priviliges

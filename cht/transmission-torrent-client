@@ -1,0 +1,26 @@
+mkdir -p ~/Torrent
+transmission-daemon --download-dir ~/Torrent
+transmission-remote -a <file>
+transmission-remote -l
+
+# Void
+~/.config/transmission-daemon/settings.json
+
+# SYSTEMD
+sudo systecmtl stop transmission-daemon
+/etc/transmission-daemon/settings.json
+```
+...
+"rpc-authentication-required": false,
+...
+```
+sudo systecmtl start transmission-daemon
+
+# I2P
+"proxy": "127.0.0.1:4444",         // I2P HTTP proxy port
+"proxy-type": 1,                    // 1 = HTTP proxy
+"peer-socket-tos": "0x00",          // Disable TOS flags
+"rpc-whitelist-enabled": false,     // Allow remote access if needed
+"dht-enabled": false,               // Disable clearnet DHT
+"pex-enabled": false,               // Disable clearnet PEX
+"lpd-enabled": false                // Disable Local Peer Discovery

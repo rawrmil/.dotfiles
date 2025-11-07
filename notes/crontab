@@ -1,0 +1,43 @@
+Min  Hour Day  Mon  Weekday
+*    *    *    *    *  command to be executed
+┬    ┬    ┬    ┬    ┬
+│    │    │    │    └─  Weekday  (0=Sun .. 6=Sat)
+│    │    │    └──────  Month    (1..12)
+│    │    └───────────  Day      (1..31)
+│    └────────────────  Hour     (0..23)
+└─────────────────────  Minute   (0..59)
+
+# Every hour
+0 * * * *
+
+# Every 15 mins
+*/15 * * * *
+
+# Every 2 hours
+0 */2 * * *
+
+# Every week Mon-Sat at 6pm
+0 18 * * 0-6
+
+# Every Sat and Sun on 2:10am
+10 2 * * 6,7
+
+# Every Sunday midnight
+0 0 * * 0
+
+# Adding tasks easily
+echo "*/5 * * * * [COMMAND]" | crontab -
+echo "*/5 * * * * [COMMAND]" | crontab -u user -
+
+# Delete 
+crontab -l | grep -v "[COMMAND]" | crontab -
+crontab -l | grep -v "[COMMAND]" | crontab -u user -
+
+# Open in editor
+crontab -e [-u user]
+
+# List tasks
+crontab -l [-u user]
+
+# Delete crontab file
+crontab -r [-u user]

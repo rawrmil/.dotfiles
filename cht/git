@@ -1,0 +1,150 @@
+# R E N A M E   C O M M I T
+git commit --amend
+
+# S E T U P
+
+git config --global user.name "FIRSTNAME LASTNAME"
+git config --global user.email "EMAIL"
+
+# A D D   F E A T U R E S
+
+git checkout main
+git pull
+git checkout -b feature/my-feature
+# CHANGE SHIT
+git add *
+git commit -am "WIP: "
+git push origin -m feature/my-feature
+# When done:
+git checkout main
+git merge feature/my-feature
+git push origin main
+git push origin --delete feature/my-feature
+
+# E M P T Y   B R A N C H
+
+git checkout --orphan [BRANCHNAME]
+git commit --allow-empty -m "Initial commit"
+git push -u origin [BRANCHNAME]
+
+# M I S C
+
+# R E P O
+
+git init
+git clone [URL]
+git clone git@[IP]:~/[REPO]
+git clone ssh://[IP]:[PORT]/[REPO]
+git status
+
+git add [FILE]
+git add *
+- add changes to the stage (next commit)
+git reset [FILE]
+git reset *
+- reset staged changes
+
+git diff
+- show changed but not staged
+git diff --staged
+- show staged but not commited
+
+git commit -m "[DESCRIPTIVE MESSAGE]"
+
+# B R A N C H E S
+
+git branch
+- list branches
+git branch [NAME]
+- create new branch
+git branch -d [NAME]
+- delete local branch
+git push -d [REMOTE_NAME] [BRANCH_NAME]
+- delete remote branch
+
+git checkout [NAME]
+- change branch
+
+git checkout -b NEW_BRANCH OLD_BRANCH
+- clone branch
+
+# I N S P E C T I O N
+
+git diff [BRANCH_A]..[BRANCH_B]
+- show diff of what on A that are not on B
+
+git log
+- list all the commits in current branch
+git log [BRANCH_A]..[BRANCH_B]
+- show commits to A that are not on B
+
+git log --follow [FILE]
+- show commit that changed file even across renames
+git log --stat -M
+- show all commit logs with indication of any paths that moved
+
+git show [SHA_CODE]
+- show information about object in human-readable format
+git show
+git show HEAD
+- show current commit
+git show HEAD^
+- show parent of current commit
+git show [BRANCH_NAME]
+- show last commit on branch
+git show [FILE_NAME]
+
+# R E M O T E
+
+git remote add [ALIAS] [URL]
+- add remote repo
+- [ALIAS] better be "origin"
+
+git push --set-upstream origin master
+
+git fetch [ALIAS]
+- fetch down all the branches from that Git remote
+
+git merge [ALIAS]/[BRANCH]
+- merge remote branch into tracking branch
+
+git pull
+- fetch and merge any commits from the tracking remote branch
+git push [ALIAS] [BRANCH]
+- transmit all branch commits
+
+git rm [FILE]
+- delete the file from project and stage the removal for commit
+
+git mv [SRC] [DST]
+- change an existing file path and stage the move
+
+# S T A S H E S
+
+git stash
+- save modified & staged changes
+git stash list
+- list stack-order of stashed file changes
+git stash pop
+- write working from top of stash stack
+git stash drop
+- discard the changes from top of stash stack
+git stash push -u -m "My descriptive stash message"
+- save the current stash to remote
+
+# H I S T O R Y
+
+git rebase [branch]
+- apply any commits of current branch ahead of specified one
+
+git reset --hard [commit]
+- clear staging area, rewrite working tree from specified commit
+
+# Versioning
+Tags are immutable pointers to a specific commit, marking a version
+
+git tag -a v1.0.0 -m "Release v1.0.0"
+- create a tag
+git push origin --tags
+- push tags
+Semantic Versioning (SemVer): Use a versioning scheme like SemVer (e.g., MAJOR.MINOR.PATCH) to indicate the type of changes made in each release.
