@@ -1,9 +1,0 @@
-/etc/sudoers
-%wheel ALL=(ALL:ALL) NOPASSWD: /sbin/poweroff
-%wheel ALL=(ALL:ALL) NOPASSWD: /sbin/reboot
-
-or
-
-
-%sudo ALL=(ALL:ALL) NOPASSWD: /sbin/poweroff
-%sudo ALL=(ALL:ALL) NOPASSWD: /sbin/reboot

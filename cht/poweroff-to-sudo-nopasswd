@@ -1,4 +1,0 @@
-/etc/sudoers
-```
-%sudo	ALL=(ALL:ALL) NOPASSWD: /sbin/passwd
-```
