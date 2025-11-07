@@ -2,6 +2,8 @@
 
 #set -x
 
+stow_ignore=
+
 # D E P E N D E N C I E S
 
 # Default
@@ -10,6 +12,7 @@ zsh_chsh_path="/bin/zsh"
 # Termux
 if [ `echo $PREFIX | grep -o "com.termux"` ]; then
 	zsh_chsh_path="zsh"
+	stow_flags="--ignore .termux "
 fi
 
 # U T I L S
@@ -49,5 +52,9 @@ if hascmd "gh"; then
 	fi
 fi
 
-cd ~/.dotfiles
-stow src
+if hascmd "startx"; then
+	stow_flags="--ignore .termux"
+fi
+
+echo "Stow Flags: $stow_flags"
+cd ~/.dotfiles && stow src $stow_flags
