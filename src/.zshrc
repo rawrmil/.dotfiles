@@ -1,16 +1,13 @@
 # Rami's take on Luke's config for ZSH
 export PATH="/sbin:$PATH"
-export PATH="$HOME/dots/scripts/termux:$PATH"
-export PATH="$HOME/dots/scripts/git:$PATH"
-export PATH="$HOME/dots/scripts/desktop:$PATH"
-export PATH="$HOME/dots/scripts/bin:$PATH"
+export PATH="$HOME/.dotfiles/scripts/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/Music:$PATH"
+export PATH="$HOME/.local/termux:$PATH"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Dots synchronisation
-exec ~/dots/scripts/rh-dots-sync.sh > ~/.dots_sync.log 2>&1 &!
+# Dotfiles synchronisation
+exec ~/.dotfiles/scripts/utils/dotfiles-sync.sh > ~/.sync-dotfiles.log 2>&1 &!
 
 # Aliases
 alias ls="ls --color=auto"
