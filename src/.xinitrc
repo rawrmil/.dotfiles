@@ -1,2 +1,1 @@
-#exec ~/.dotfiles/scripts/dwm/dwm-loop.sh
-dwm
+exec ~/.dotfiles/scripts/dwm/dwm-loop.sh
