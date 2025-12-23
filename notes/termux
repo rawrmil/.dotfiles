@@ -1,2 +1,4 @@
 pkg install x11-repo
 # - for xfc4, lxqt, ...
+pkg install xfce4
+termux-x11 :0 -xstartup "dbus-launch --exit-with-session xfce4-session"
